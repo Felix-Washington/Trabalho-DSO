@@ -10,3 +10,5 @@ class Cliente(Pessoa):
   @property
   def nome(self):
     return self.__nome
+
+  

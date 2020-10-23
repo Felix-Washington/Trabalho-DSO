@@ -31,4 +31,6 @@ class ControladorPrincipal():
     pass
 
   def abre_tela(self):
-    self.__tela_menu.mostra_opcoes()
+    #self.__tela_menu.mostra_opcoes(self)
+
+    pass

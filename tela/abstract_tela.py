@@ -9,6 +9,11 @@ class AbstractTela(ABC):
   def le_num_inteiro():
     pass
 
-  @abstractmethod
   def mostra_opcoes():
-    pass
+    print("Você deseja:")
+    print("1 - Logar")
+    print("2 - Cadastrar")
+    print("3 - Remover Cadastro")
+    print("0 - Voltar")
+
+    
