@@ -1,5 +1,6 @@
 from controlador.abstract_controlador import AbstractControlador
 from tela.tela_funcionario import TelaFuncionario
+from entidade.funcionario import Funcionario
 
 class ControladorFuncionario(AbstractControlador):
   def __init__(self):
@@ -13,7 +14,10 @@ class ControladorFuncionario(AbstractControlador):
     pass
 
   def adicionar(self):
-    #test = self.__tela_cliente.opcoes_cadastro()
+    nome, cpf, senha = self.__tela_funcionario.dados_cadastro()
+    funcionario = Funcionario(nome, cpf, senha)
+    self.__funcionarios.append(funcionario)
+    self.__tela_funcionario.avisos("cadastrar")
     
     pass
 
@@ -33,7 +37,7 @@ class ControladorFuncionario(AbstractControlador):
 
     while self.__controle:
 
-      opcao_escolhida = self.__tela_funcionario.mostra_opcoes("funcionario")
+      opcao_escolhida = self.__tela_funcionario.mostra_opcoes("funcionario", [1, 2, 3, 0])
 
       funcao_escolhida = lista_opcoes[opcao_escolhida]
 

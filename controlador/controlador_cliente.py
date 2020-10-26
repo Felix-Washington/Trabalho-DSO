@@ -11,7 +11,7 @@ class ControladorCliente(AbstractControlador):
 
   def login_cliente(self):
     self.__tela_cliente.login_cliente()
-    pass
+    
 
   def adicionar(self):
     nome, cpf, senha = self.__tela_cliente.dados_cadastro()
@@ -22,7 +22,8 @@ class ControladorCliente(AbstractControlador):
 
   def remover(self):
     
-    self.__tela_cliente.avisos("remover")
+    pass
+    #self.__tela_cliente.avisos("remover")
 
   def voltar(self):
     self.__controle = False

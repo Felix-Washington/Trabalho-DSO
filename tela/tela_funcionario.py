@@ -4,16 +4,24 @@ class TelaFuncionario(AbstractTela):
   def __init__(self):
     pass
 
-def le_num_inteiro(self):
-    pass
+  def dados_cadastro(self):
+      print("Digite seu nome:")
+      nome = input("")
 
-def mostra_opcoes(self):
-  print("Você deseja:")
-  print("1 - Logar")
-  print("2 - Cadastrar")
-  print("3 - Remover Cadastro")
-  print("")
-  print("0 - Voltar")
+      print("Digite seu cpf")
+      cpf = input()
 
-def login_funcionar(self):
-  pass
+      print("Digite a sua senha")
+      senha = input("")
+
+      return nome, cpf, senha
+
+
+  def login_funcionario(self):
+    
+    print("Digite seu CPF")
+    cpf = input()
+    print("Digite sua senha")
+    senha = input()
+
+    return cpf, senha

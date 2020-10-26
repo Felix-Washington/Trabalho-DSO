@@ -25,3 +25,9 @@ class AbstractTela(ABC):
 
     opcao = self.le_num_inteiro("Escolha a opcao: ", opcoes_validas)
     return opcao
+
+  def avisos(self, opcao):
+    if opcao == "cadastrar":
+      print("Usuário cadastrado com sucesso!")
+    elif opcao == "remover":
+      print("Usuário removido com sucesso!")
