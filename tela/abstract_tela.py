@@ -16,12 +16,12 @@ class AbstractTela(ABC):
       except ValueError:
         print("Digite um inteiro válido!")
 
-  def mostra_opcoes(self):
-    print("Você deseja:")
+  def mostra_opcoes(self, pessoa: str, opcoes_validas: []):
+    print("Como", pessoa , "você deseja:")
     print("1 - Logar")
     print("2 - Cadastrar")
     print("3 - Remover Cadastro")
     print("0 - Voltar")
 
-    opcao = self.le_num_inteiro("Escolha a opcao: ", [1, 2, 0])
+    opcao = self.le_num_inteiro("Escolha a opcao: ", opcoes_validas)
     return opcao

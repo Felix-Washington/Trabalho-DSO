@@ -2,13 +2,8 @@ from entidade.pessoa import Pessoa
 
 class Cliente(Pessoa):
 
-  def __init__(self, nome, cpf, senha, ):
+  def __init__(self, nome: str, cpf: int, senha: str):
     self.__nome = nome
     self.__cpf = cpf
     self.__senha = senha
 
-  @property
-  def nome(self):
-    return self.__nome
-
-  

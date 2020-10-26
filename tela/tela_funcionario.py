@@ -15,4 +15,5 @@ def mostra_opcoes(self):
   print("")
   print("0 - Voltar")
 
-  
+def login_funcionar(self):
+  pass

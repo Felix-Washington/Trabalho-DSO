@@ -18,32 +18,29 @@ class ControladorPrincipal():
 
     self.__tela_menu = TelaMenu()
 
-
-
   def inicia_sistema(self):
     self.abre_tela()
-    pass
 
   def mostra_tela_funcionario(self):
+    self.__controlador_funcionario.abre_tela()
     pass
 
   def mostra_tela_cliente(self):
-    self.__controlador_cliente.controle = True
+    #self.__controlador_cliente.controle = True
     self.__controlador_cliente.abre_tela()
-
 
   def fecha_sistema(self):
 
     exit(0)
 
   def abre_tela(self):
-    lista_opcoes = {1: self.mostra_tela_cliente,
+    lista_opcoes = {
+    1: self.mostra_tela_cliente,
     2: self.mostra_tela_funcionario, 
     0: self.fecha_sistema}
 
     while True:
   
-
       opcao_escolhida = self.__tela_menu.mostra_opcoes()
 
       funcao_escolhida = lista_opcoes[opcao_escolhida]

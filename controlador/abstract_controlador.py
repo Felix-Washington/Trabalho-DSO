@@ -4,7 +4,7 @@ class AbstractControlador(ABC):
   def __init__(self):
     pass
 
-  #@abstractmethod
+  @abstractmethod
   def adicionar(self):
     pass
 

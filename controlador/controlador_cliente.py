@@ -10,27 +10,34 @@ class ControladorCliente(AbstractControlador):
     pass
 
   def login_cliente(self):
+    self.__tela_cliente.login_cliente()
     pass
 
   def adicionar(self):
-    self.__tela_cliente.opcoes_cadastro()
-    pass
+    nome, cpf, senha = self.__tela_cliente.dados_cadastro()
+    cliente = Cliente(nome, cpf, senha)
+    self.__clientes.append(cliente)
+    self.__tela_cliente.avisos("cadastrar")
+
 
   def remover(self):
-    pass
+    
+    self.__tela_cliente.avisos("remover")
 
   def voltar(self):
     self.__controle = False
+    
 
   def abre_tela(self):
-    lista_opcoes = {1: self.login_cliente,
+    lista_opcoes = {
+    1: self.login_cliente,
     2: self.adicionar, 
     3: self.remover,
     0: self.voltar}
 
     while self.__controle:
 
-      opcao_escolhida = self.__tela_cliente.mostra_opcoes()
+      opcao_escolhida = self.__tela_cliente.mostra_opcoes("cliente", [1, 2, 3, 0])
 
       funcao_escolhida = lista_opcoes[opcao_escolhida]
 

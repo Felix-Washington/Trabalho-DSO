@@ -5,6 +5,9 @@ class ControladorProduto(AbstractControlador):
     #self.__produtos = [] = None
     pass
 
+  def adicionar(self):
+    pass
+
   @property
   def produtos(self):
     return self.__produtos
