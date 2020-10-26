@@ -4,7 +4,7 @@ class TelaCarrinho(AbstractTela):
   def __init__(self):
     pass
 
-  def le_num_inteiro():
+  def le_num_inteiro(self):
     pass
 
 

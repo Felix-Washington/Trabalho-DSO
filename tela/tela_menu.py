@@ -4,14 +4,14 @@ class TelaMenu(AbstractTela):
   def __init__(self):
     pass
 
-  def le_num_inteiro(self, opcoes_validas: []):
+  def le_num_inteiro(self, mensagem: str = "", opcoes_validas: [] = None):
     while True:
-      dado_usuario = int(input())
+      valor_lido = input(mensagem)
       try:
-        if dado_usuario not in opcoes_validas:
+        inteiro = int(valor_lido)
+        if inteiro not in opcoes_validas:
           raise ValueError
-
-
+        return inteiro
       except ValueError:
         print("Digite um inteiro válido!")
 
@@ -23,4 +23,5 @@ class TelaMenu(AbstractTela):
     print("2 - Funcionário")
     print("0 - Sair")
 
-    opcao = self._le_num_inteiro([0,1,2])
+    opcao = self.le_num_inteiro("Escolha a opcao: ", [1, 2, 0])
+    return opcao
