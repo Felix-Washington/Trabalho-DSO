@@ -16,18 +16,16 @@ class AbstractTela(ABC):
       except ValueError:
         print("Digite um inteiro válido!")
 
-  def mostra_opcoes(self, pessoa: str, opcoes_validas: []):
-    print("Como", pessoa , "você deseja:")
-    print("1 - Logar")
-    print("2 - Cadastrar")
-    print("3 - Remover Cadastro")
-    print("0 - Voltar")
+  @abstractmethod
+  def mostra_opcoes(self):
+    pass
 
-    opcao = self.le_num_inteiro("Escolha a opcao: ", opcoes_validas)
-    return opcao
 
-  def avisos(self, opcao):
+
+  def avisos(self, opcao: str, entidade: str):
     if opcao == "cadastrar":
-      print("Usuário cadastrado com sucesso!")
+      print(entidade, "cadastrado com sucesso!")
     elif opcao == "remover":
-      print("Usuário removido com sucesso!")
+      print(entidade, "removido com sucesso!")
+    elif opcao == "dados_invalidos":
+      print("Erro! Digite o cpf ou a senha corretamente!")

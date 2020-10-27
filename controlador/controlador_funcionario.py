@@ -10,14 +10,14 @@ class ControladorFuncionario(AbstractControlador):
     
 
   def login_funcionario(self):
-    self.__tela_funcionario.login_funcionario()
+    self.__tela_funcionario.login()
     pass
 
   def adicionar(self):
     nome, cpf, senha = self.__tela_funcionario.dados_cadastro()
     funcionario = Funcionario(nome, cpf, senha)
     self.__funcionarios.append(funcionario)
-    self.__tela_funcionario.avisos("cadastrar")
+    self.__tela_funcionario.avisos("cadastrar", "Funcionário")
     
     pass
 
@@ -35,9 +35,10 @@ class ControladorFuncionario(AbstractControlador):
     3: self.remover,
     0: self.voltar}
 
+    self.__controle = True
     while self.__controle:
 
-      opcao_escolhida = self.__tela_funcionario.mostra_opcoes("funcionario", [1, 2, 3, 0])
+      opcao_escolhida = self.__tela_funcionario.mostra_opcoes()
 
       funcao_escolhida = lista_opcoes[opcao_escolhida]
 

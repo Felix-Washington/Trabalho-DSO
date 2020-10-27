@@ -3,7 +3,9 @@ from abc import ABC, abstractmethod
 class Pessoa(ABC):
   @abstractmethod
   def __init__(self, nome: str, cpf: int, senha: str):
-    pass
+    self.__nome = nome
+    self.__cpf = cpf
+    self.__senha = senha
 
   @property
   def nome(self):

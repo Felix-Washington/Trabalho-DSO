@@ -7,38 +7,79 @@ class ControladorCliente(AbstractControlador):
     self.__clientes = [] 
     self.__tela_cliente = TelaCliente()
     self.__controle = True
-    pass
+    self.__opcoes_controle = True
+
 
   def login_cliente(self):
-    self.__tela_cliente.login_cliente()
-    
+    cpf, senha = self.__tela_cliente.login()
+
+    for um_cliente in self.__clientes:
+      if cpf == um_cliente.cpf and senha == um_cliente.senha:
+
+        self.cliente_opcoes(um_cliente.nome)
+      else:
+        self.__tela_cliente.avisos("dados_invalidos", "")
 
   def adicionar(self):
     nome, cpf, senha = self.__tela_cliente.dados_cadastro()
     cliente = Cliente(nome, cpf, senha)
     self.__clientes.append(cliente)
-    self.__tela_cliente.avisos("cadastrar")
+    self.__tela_cliente.avisos("cadastrar", "Cliente")
 
+
+  def comprar(self):
+    pass
+
+  def ver_cadastro(self):
+    pass
+
+  def atualziar(self):
+    pass
 
   def remover(self):
-    
-    pass
-    #self.__tela_cliente.avisos("remover")
+    cpf, senha = self.__tela_cliente.remove_cliente()
+    for um_cliente in self.__clientes:
+      if cpf == um_cliente.cpf and senha == um_cliente.senha:
+        self.__clientes.remove(um_cliente)
+        break
+
+    self.__tela_cliente.avisos("remover", "Cliente")
+    self.__opcoes_controle = False
 
   def voltar(self):
     self.__controle = False
     
+  def cliente_opcoes(self, cliente):
+    lista_opcoes = {
+    1: self.comprar,
+    2: self.ver_cadastro, 
+    3: self.atualizar,
+    4: self.remover,
+    0: self.voltar}
+
+    self.__opcoes_controle = True
+
+    while self.__opcoes_controle:
+
+      opcao_escolhida = self.__tela_cliente.opcoes_cliente_logado(cliente)
+
+      funcao_escolhida = lista_opcoes[opcao_escolhida]
+
+      funcao_escolhida()
+  
+
+  
 
   def abre_tela(self):
     lista_opcoes = {
     1: self.login_cliente,
     2: self.adicionar, 
-    3: self.remover,
     0: self.voltar}
 
+    self.__controle = True
     while self.__controle:
 
-      opcao_escolhida = self.__tela_cliente.mostra_opcoes("cliente", [1, 2, 3, 0])
+      opcao_escolhida = self.__tela_cliente.mostra_opcoes()
 
       funcao_escolhida = lista_opcoes[opcao_escolhida]
 

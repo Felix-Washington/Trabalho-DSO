@@ -4,10 +4,8 @@ class TelaProduto(AbstractTela):
   def __init__(self):
     pass
 
-  def le_num_inteiro():
-    pass 
 
-  def mostra_opcoes():
+  def mostra_opcoes(self):
     print("Você deseja:")
     print("1 - Cadastrar Produto")
     print("2 - Remover Produto")

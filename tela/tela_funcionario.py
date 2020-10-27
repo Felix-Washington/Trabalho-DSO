@@ -17,7 +17,7 @@ class TelaFuncionario(AbstractTela):
       return nome, cpf, senha
 
 
-  def login_funcionario(self):
+  def login(self):
     
     print("Digite seu CPF")
     cpf = input()
@@ -25,3 +25,15 @@ class TelaFuncionario(AbstractTela):
     senha = input()
 
     return cpf, senha
+
+  
+
+  def mostra_opcoes(self):
+    print("Como funcionário você deseja:")
+    print("1 - Logar")
+    print("2 - Cadastrar")
+    print("3 - Remover Cadastro")
+    print("0 - Voltar")
+
+    opcao = self.le_num_inteiro("Escolha a opcao: ", [1, 2, 3, 0])
+    return opcao
