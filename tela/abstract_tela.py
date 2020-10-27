@@ -5,7 +5,7 @@ class AbstractTela(ABC):
   def __init__():
     pass
 
-  def le_num_inteiro(self, mensagem: str = "", opcoes_validas: [] = None):
+  def le_num_inteiro(self, mensagem: str, opcoes_validas: []):
     while True:
       valor_lido = input(mensagem)
       try:
@@ -14,12 +14,42 @@ class AbstractTela(ABC):
           raise ValueError
         return inteiro
       except ValueError:
-        print("Digite um inteiro válido!")
+        print("Digite uma opção válida!")
+
+
+  def verifica_inteiro(self, entidade: str):
+    while True:
+      valor = input()
+      
+      try:
+        inteiro = int(valor)
+        if type(inteiro) != int:
+          raise ValueError
+
+        return valor
+      except ValueError:
+        print(entidade ,"deve ser composto apenas de números inteiros!")
+
+
+  def verifica_palavra(self):
+    while True:
+      valor = input()
+      
+      try:
+        ha_numero = any(char.isdigit() for char in valor)
+
+        if ha_numero:
+          raise ValueError
+        else:
+          return valor
+      except ValueError:
+        print("Digite apenas letras!")
+
+
 
   @abstractmethod
   def mostra_opcoes(self):
     pass
-
 
 
   def avisos(self, opcao: str, entidade: str):

@@ -9,7 +9,6 @@ from tela.tela_menu import TelaMenu
 
 class ControladorPrincipal():
   def __init__(self):
-    
     self.__controlador_carrinho = ControladorCarrinho()
     self.__controlador_cliente = ControladorCliente()
     self.__controlador_funcionario = ControladorFuncionario()
@@ -18,20 +17,23 @@ class ControladorPrincipal():
 
     self.__tela_menu = TelaMenu()
 
+
   def inicia_sistema(self):
     self.abre_tela()
+
 
   def mostra_tela_funcionario(self):
     self.__controlador_funcionario.abre_tela()
     pass
 
+
   def mostra_tela_cliente(self):
-    #self.__controlador_cliente.controle = True
     self.__controlador_cliente.abre_tela()
 
-  def fecha_sistema(self):
 
+  def fecha_sistema(self):
     exit(0)
+
 
   def abre_tela(self):
     lista_opcoes = {

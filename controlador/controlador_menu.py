@@ -7,3 +7,11 @@ class ControladorMenu(AbstractControlador):
 
   def adicionar(self):
     pass
+
+
+  def remover(self):
+    pass
+
+
+  def atualizar(self):
+    pass

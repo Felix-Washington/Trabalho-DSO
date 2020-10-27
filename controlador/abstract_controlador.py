@@ -8,10 +8,10 @@ class AbstractControlador(ABC):
   def adicionar(self):
     pass
 
-  #@abstractmethod
+  @abstractmethod
   def remover(self):
     pass
 
-  #@abstractmethod
+  @abstractmethod
   def atualizar(self):
     pass
